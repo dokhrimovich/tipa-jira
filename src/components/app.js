@@ -1,9 +1,14 @@
 import React from 'react';
+import HeaderContainer from '../containers/header-container';
+import Footer from './footer';
 
 const App = () => (
-    <div>
-        Tipa JIRA
+    <div className="application">
+        <HeaderContainer/>
+        <Footer />
+
     </div>
+
 );
 
 export default App;
