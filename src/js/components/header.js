@@ -8,7 +8,7 @@ const Header = ({
     onLogoutClick
                 }) => (
     <div className="header">
-        <a href="/"><img src=""></img></a>
+        <a href="/" className="header-logo"></a>
         <h1>Tipa JIRA</h1>
         {isLoggedIn
             ? (<span>Welcome, {userName}</span>)
