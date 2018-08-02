@@ -1,0 +1,6 @@
+$fontSize: 14px;
+$lineHeight: 19px;
+
+body {
+  font: #{$fontSize}/#{$lineHeight} 'body_font','Helvetica Neue',Helvetica,Arial,sans-serif;
+}

@@ -1,9 +1,10 @@
-var path = require('path');
-var webpack = require('webpack');
-var htmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const htmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/js/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
@@ -16,9 +17,45 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 }
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    { loader: 'css-hot-loader' },
+                    { loader: 'css-loader' },
+                    /*{
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [autoprefixer({ browsers: ['> 1%', 'IE >= 10'] })],
+                        },
+                    },*/
+                    { loader: 'sass-loader' }
+                ]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[path][name].[ext]'
+                        }
+                    }
+                ]
             }
         ]
 	},
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new htmlWebpackPlugin({
+            template: 'src/index.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css'
+        })
+    ],
     optimization: {
         splitChunks: {
             automaticNameDelimiter: '-',
@@ -38,12 +75,6 @@ module.exports = {
             }
         }
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new htmlWebpackPlugin({
-            template: 'src/index.html'
-        })
-    ],
     devtool: 'eval',
     devServer: {
         historyApiFallback: true,
