@@ -3,7 +3,7 @@ const user = (state = {}, action) => {
         case 'LOGIN':
             return Object.assign({}, state, {
                 isLoggedIn: true,
-                name: 'Kukuruzko'
+                name: action.userName
             });
         case 'LOGOUT':
             return Object.assign({}, state, {
