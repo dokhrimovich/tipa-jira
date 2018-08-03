@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from "../components/header";
+import Header from "../components/header/header";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => ({
@@ -8,7 +8,23 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onLoginClick: () => dispatch({ type: 'LOGIN' }),
+    onLoginClick: (userName, password) => {
+        let authPromise = new Promise((resolve, reject) => {
+                window.setTimeout(() => {
+                    if (password === '777') {
+                        resolve();
+                    } else {
+                        reject('auth error');
+                    }
+                }, 200);
+        });
+
+        authPromise.then(() => {
+            dispatch({ type: 'LOGIN', userName: userName });
+        });
+
+        return authPromise;
+    },
     onLogoutClick: () => dispatch({ type: 'LOGOUT' })
 });
 
