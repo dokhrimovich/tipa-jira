@@ -1,0 +1,25 @@
+.grid {
+  flex: 1 1 auto;
+}
+
+.grid-column {
+  flex: 1 1 15em;
+  flex-direction: column;
+  outline: 1px solid darkgray;
+  margin: 1px 0 0 1px;
+}
+
+.grid-column_header {
+  flex: 0 0 2em;
+  align-items: center;
+  background: linear-gradient(to right, #aaa, #ccc, #aaa);
+
+  header {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+.grid-column_content {
+  flex: 1 1 auto;
+}

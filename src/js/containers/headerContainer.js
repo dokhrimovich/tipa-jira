@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from "../components/header/header";
 import { connect } from "react-redux";
+import * as actionType from '../constants/actionTypes';
 
 const mapStateToProps = (state) => ({
     userName: state.user.name,
@@ -20,12 +21,12 @@ const mapDispatchToProps = (dispatch) => ({
         });
 
         authPromise.then(() => {
-            dispatch({ type: 'LOGIN', userName: userName });
+            dispatch({ type: actionType.LOGIN, userName: userName });
         });
 
         return authPromise;
     },
-    onLogoutClick: () => dispatch({ type: 'LOGOUT' })
+    onLogoutClick: () => dispatch({ type: actionType.LOGOUT })
 });
 
 const HeaderContainer = connect(

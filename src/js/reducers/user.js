@@ -1,11 +1,13 @@
+import * as actionType from '../constants/actionTypes';
+
 const user = (state = {}, action) => {
     switch (action.type) {
-        case 'LOGIN':
+        case actionType.LOGIN:
             return Object.assign({}, state, {
                 isLoggedIn: true,
                 name: action.userName
             });
-        case 'LOGOUT':
+        case actionType.LOGOUT:
             return Object.assign({}, state, {
                 isLoggedIn: false,
                 name: ''
