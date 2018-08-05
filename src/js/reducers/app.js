@@ -1,17 +1,8 @@
 import { combineReducers } from 'redux';
+import statuses from './statuses';
 import user from './user';
-import * as actionType from "../constants/actionTypes";
-import * as taskStatuses from "../constants/taskStatuses";
+import tasks from './tasks';
+import currentTask from './currentTask';
 
-const app = (state = { statuses: [] }, action) => {
-    switch (action.type) {
-        case actionType.INIT:
-            return Object.assign({}, state, {
-                statuses: [taskStatuses.TODO, taskStatuses.IN_PROGRESS, taskStatuses.TESTING, taskStatuses.CLOSED]
-            });
-        default:
-            return state;
-    }
-};
+export default combineReducers({ statuses, user, tasks, currentTask });
 
-export default combineReducers({ app, user });

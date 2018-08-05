@@ -1,4 +1,5 @@
-export const TODO = 'TODO';
-export const IN_PROGRESS = 'IN_PROGRESS';
-export const TESTING = 'TESTING';
-export const CLOSED = 'CLOSED';
+export const TODO = 1;
+export const IN_PROGRESS = 2;
+export const CODE_REVIEW = 3;
+export const TESTING = 4;
+export const CLOSED = 5;
