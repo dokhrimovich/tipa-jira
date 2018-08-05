@@ -22,4 +22,13 @@
 
 .grid-column_content {
   flex: 1 1 auto;
+  flex-direction: column;
+  margin-top: 0.2em;
+}
+
+.grid-column_item {
+  flex: 0 0 6em;
+  padding: 0.3em;
+  margin: 0.2em;
+  background-color: gainsboro;
 }

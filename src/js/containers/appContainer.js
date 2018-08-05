@@ -1,25 +1,12 @@
 import React from 'react';
 import App from "../components/app";
 import { connect } from "react-redux";
-import * as actionType from '../constants/actionTypes';
+import { initApp } from '../actions/common';
 
 const mapDispatchToProps = (dispatch) => ({
-    initApp: () => {
-        let authPromise = new Promise((resolve) => {
-            window.setTimeout(resolve, 200);
-        });
-
-        authPromise.then(() => {
-            dispatch({ type: actionType.INIT });
-        });
-
-        return authPromise;
-    }
+    initApp: () => initApp(dispatch)
 });
 
-const AppContainer = connect(
-    null,
-    mapDispatchToProps
-)(App);
+const AppContainer = connect(null, mapDispatchToProps)(App);
 
 export default AppContainer;
