@@ -1,14 +1,24 @@
 import React from 'react';
-import HeaderContainer from '../containers/header-container';
+import HeaderContainer from '../containers/headerContainer';
+import Content from './content';
 import Footer from './footer';
 
-const App = () => (
-    <div className="application">
-        <HeaderContainer/>
-        <Footer />
+class App extends React.Component {
+    componentWillMount() {
+        const { initApp } = this.props;
 
-    </div>
+        initApp();
+    }
 
-);
+    render() {
+        return (
+            <div className="application">
+                <HeaderContainer/>
+                <Content />
+                <Footer />
+            </div>
+        );
+    }
+}
 
 export default App;
