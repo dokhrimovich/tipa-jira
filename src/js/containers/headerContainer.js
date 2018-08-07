@@ -1,16 +1,17 @@
 import React from 'react';
 import Header from "../components/header/header";
 import { connect } from "react-redux";
-import { login, logout } from '../actions/common';
+import action from '../actions/common';
 
 const mapStateToProps = (state) => ({
-    userName: state.user.name,
+    login: state.user.login,
+    name: state.user.name,
     isLoggedIn: state.user.isLoggedIn,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onLoginClick: (userName, password) => login(dispatch, userName, password),
-    onLogoutClick: () => logout(dispatch)
+    onLoginClick: (login, password) => action.login(dispatch, login, password),
+    onLogoutClick: () => action.logout(dispatch)
 });
 
 const HeaderContainer = connect(
