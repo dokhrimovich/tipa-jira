@@ -1,11 +1,13 @@
 import React from 'react';
 import Button from '../common/button';
+import Avatar from '../common/avatar';
 
-const LoginInvitationForm = ({ name, onLogoutClick }) => (
+const HeaderUserInfo = ({ user, onLogoutClick }) => (
     <div className="header-user-container">
-        <span>Welcome, {name}</span>
+        <span>Welcome, {user.name}</span>
+        <Avatar user={user}/>
         <Button title="Logout" className="btn-logout" onClick={() => onLogoutClick()} />
     </div>
 );
 
-export default LoginInvitationForm;
+export default HeaderUserInfo;
