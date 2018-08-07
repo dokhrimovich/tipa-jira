@@ -85,30 +85,29 @@ export const usersMock = [{
     login: 'Kukuruzko',
     password: '777',
     name: 'Kuk Ruzik',
-    avatar: ''
+    avatar: 'src/styles/img/users/ava1.png'
 }, {
     id: 2,
     login: 'Potsenyatko',
     password: '555',
     name: 'Pots Natok',
-    avatar: ''
+    avatar: 'src/styles/img/users/ava2.png'
 }, {
     id: 3,
     login: 'Krendell',
     password: '555',
     name: 'Kren Delo',
-    avatar: ''
+    avatar: 'src/styles/img/users/ava3.png'
 }, {
     id: 4,
     login: 'Kopipasta',
     password: '555',
     name: 'Kopi Pasta',
-    avatar: ''
+    avatar: 'src/styles/img/users/ava4.png'
 }, {
     id: 5,
     login: 'Vaffel',
     password: '555',
     name: 'Van Felly',
-    avatar: ''
-}
-];
+    avatar: 'src/styles/img/users/ava5.png'
+}];

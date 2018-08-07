@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../common/button';
 
-class LoginInvitationForm extends React.Component {
+class HeaderLoginForm extends React.Component {
     constructor() {
         super();
 
@@ -45,4 +45,4 @@ class LoginInvitationForm extends React.Component {
     }
 }
 
-export default LoginInvitationForm;
+export default HeaderLoginForm;

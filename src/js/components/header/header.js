@@ -1,16 +1,16 @@
 import React from 'react';
-import Logo from './logo';
-import LoginInvitationForm from './login-invitation-form';
-import UserData from './user-data';
+import Logo from '../common/logo';
+import HeaderLoginForm from './headerLoginForm';
+import HeaderUserInfo from './headerUserInfo';
 
-const Header = ({ name, login, isLoggedIn, onLoginClick, onLogoutClick }) => (
+const Header = ({ user, onLoginClick, onLogoutClick }) => (
     <div className="header">
         <Logo className="header-logo" url="/" />
         <h1 className="header-title">Tipa JIRA</h1>
         <div className="header-right-container">
-            {isLoggedIn
-                ? (<UserData name={name} onLogoutClick={onLogoutClick} />)
-                : (<LoginInvitationForm onLoginClick={onLoginClick}/>)
+            {user.isLoggedIn
+                ? (<HeaderUserInfo user={user} onLogoutClick={onLogoutClick} />)
+                : (<HeaderLoginForm onLoginClick={onLoginClick}/>)
             }
         </div>
     </div>
