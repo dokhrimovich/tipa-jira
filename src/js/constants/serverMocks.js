@@ -1,4 +1,5 @@
 import * as taskStatus from "./taskStatuses";
+import * as taskPriority from "./taskPriorities";
 
 export let statusesMock = [{
     id: taskStatus.TODO,
@@ -20,38 +21,94 @@ export let statusesMock = [{
 export const tasksMock = [{
     id: 1,
     title: 'Do something nice',
-    assignedTo: 1,
-    status: taskStatus.TODO
+    assignedTo: 2,
+    status: taskStatus.TODO,
+    description: '',
+    createdOn: '',
+    lastUpdateOn: '',
+    estimate: '',
+    priority: taskPriority.MEDIUM
 }, {
     id: 2,
     title: 'Implement working solution',
-    assignedTo: 1,
-    status: taskStatus.TODO
+    assignedTo: 3,
+    status: taskStatus.TODO,
+    description: '',
+    createdOn: '',
+    lastUpdateOn: '',
+    estimate: '',
+    priority: taskPriority.MEDIUM
 }, {
     id: 3,
     title: 'Fix bug',
-    assignedTo: 1,
-    status: taskStatus.TODO
+    assignedTo: 4,
+    status: taskStatus.TODO,
+    description: '',
+    createdOn: '',
+    lastUpdateOn: '',
+    estimate: '',
+    priority: taskPriority.MEDIUM
 }, {
     id: 4,
     title: 'Watch youtube',
     assignedTo: 1,
-    status: taskStatus.IN_PROGRESS
+    status: taskStatus.IN_PROGRESS,
+    description: '',
+    createdOn: '',
+    lastUpdateOn: '',
+    estimate: '',
+    priority: taskPriority.CRITICAL
 }, {
     id: 5,
     title: 'Discover new memes',
     assignedTo: 1,
-    status: taskStatus.CODE_REVIEW
+    status: taskStatus.CODE_REVIEW,
+    description: '',
+    createdOn: '',
+    lastUpdateOn: '',
+    estimate: '',
+    priority: taskPriority.CRITICAL
 }, {
     id: 6,
-    title: 'Cure cancer',
-    assignedTo: 1,
-    status: taskStatus.TODO
+    title: 'Find cure for cancer',
+    assignedTo: 5,
+    status: taskStatus.TODO,
+    description: '',
+    createdOn: '',
+    lastUpdateOn: '',
+    estimate: '',
+    priority: taskPriority.MEDIUM
 }];
 
-export const userMock = {
+export const usersMock = [{
     id: 1,
-    authToken: 'A12RR5',
-    name: 'Kukuruzko',
-    img: ''
-};
+    login: 'Kukuruzko',
+    password: '777',
+    name: 'Kuk Ruzik',
+    avatar: ''
+}, {
+    id: 2,
+    login: 'Potsenyatko',
+    password: '555',
+    name: 'Pots Natok',
+    avatar: ''
+}, {
+    id: 3,
+    login: 'Krendell',
+    password: '555',
+    name: 'Kren Delo',
+    avatar: ''
+}, {
+    id: 4,
+    login: 'Kopipasta',
+    password: '555',
+    name: 'Kopi Pasta',
+    avatar: ''
+}, {
+    id: 5,
+    login: 'Vaffel',
+    password: '555',
+    name: 'Van Felly',
+    avatar: ''
+}
+];

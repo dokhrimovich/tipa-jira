@@ -6,7 +6,7 @@ class LoginInvitationForm extends React.Component {
         super();
 
         this.state = {
-            userName: '',
+            login: '',
             password: '',
             message: { text: 'Please login' }
         };
@@ -16,15 +16,15 @@ class LoginInvitationForm extends React.Component {
         return (<form className="header-login-invite-form" onSubmit={(event) => this.handleSubmit(event)}>
             <span className={'form-message ' + this.state.message.type}>{this.state.message.text}</span>
 
-            <input type="text" placeholder="user name" value={this.state.userName} onChange={(event) => this.userNameChangeHandler(event)}/>
-            <input type="text" placeholder="password" value={this.state.password} onChange={(event) => this.passwordChangeHandler(event)}/>
+            <input type="text" name="login" placeholder="Login" value={this.state.login} onChange={(event) => this.userNameChangeHandler(event)}/>
+            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={(event) => this.passwordChangeHandler(event)}/>
 
             <Button type="submit" title="Login" className="btn-login" />
         </form>);
     }
 
     userNameChangeHandler(event) {
-        this.setState({ userName: event.target.value });
+        this.setState({ login: event.target.value });
     }
 
     passwordChangeHandler(event) {
@@ -36,7 +36,7 @@ class LoginInvitationForm extends React.Component {
 
         const { onLoginClick } = this.props;
 
-        onLoginClick(this.state.userName, this.state.password)
+        onLoginClick(this.state.login, this.state.password)
             .then(() => {}, (error) => {
                 this.setState({
                     message: { type: 'error', text: error }

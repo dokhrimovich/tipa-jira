@@ -7,10 +7,9 @@ const user = (state = {}, action) => {
                 isLoggedIn: true
             });
         case actionType.LOGOUT:
-            return Object.assign({}, state, {
-                isLoggedIn: false,
-                name: ''
-            });
+            return {
+                isLoggedIn: false
+            };
         default:
             return state;
     }
