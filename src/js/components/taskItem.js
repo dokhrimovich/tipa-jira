@@ -9,9 +9,12 @@ class TaskItem extends React.Component {
     }
 
     render() {
-        let { task } = this.props;
+        let { task, currentTask, onTaskClick } = this.props;
 
-        return (<div className="grid-column_item">
+        return (<div
+                className={`grid-column_item${(currentTask.id === task.id) ? ' active' : ''}`}
+                onClick={() => onTaskClick(task.id)}
+            >
             <div className="grid-column_item-header">
                 <Avatar className="small" user={this.getUserByUserId(task.assignedTo)}/>
             </div>

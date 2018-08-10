@@ -31,4 +31,13 @@
   padding: 0.3em;
   margin: 0.2em;
   background-color: gainsboro;
+
+  &.active {
+    box-shadow: 2px 2px 1em #4974ff;
+    outline: 1px solid #8ea7ff;
+  }
+}
+
+.grid-column_item-content {
+  margin: 0 0.5em;
 }
