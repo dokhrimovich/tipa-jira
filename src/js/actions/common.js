@@ -25,8 +25,17 @@ export const logout = (dispatch) => {
         .then(() => dispatch({ type: actionType.LOGOUT }));
 };
 
+export const setActiveTask = (dispatch, id) => {
+    serverUtils.fetchTask(id)
+        .then(
+            (task) => dispatch({ type: actionType.SET_CURRENT_TASK, data: task }),
+            (error) => dispatch({ type: actionType.SET_CURRENT_TASK, data: {} })
+        );
+};
+
 export default {
     initApp,
     login,
-    logout
+    logout,
+    setActiveTask
 };

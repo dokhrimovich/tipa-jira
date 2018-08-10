@@ -95,6 +95,21 @@ export const fetchTasks = () => {
     });
 };
 
+export const fetchTask = (id) => {
+    return new Promise((resolve, reject) => {
+        window.setTimeout(() => {
+            let rawTasks = storageUtils.getItem('fake.server.tasks');
+            let task = rawTasks.find((t) => t.id === id);
+
+            if (task) {
+                resolve(task);
+            } else {
+                reject(`Task [id=${id}]not found`);
+            }
+        }, fakeServerDelay);
+    });
+};
+
 const getPreviewTask = (data) => {
     const previewProps = ['id', 'title', 'status', 'assignedTo', 'priority'];
 
