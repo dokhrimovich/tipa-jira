@@ -1,0 +1,54 @@
+.task-card {
+  flex: 0 0 10em;
+  padding: 0.3em;
+  margin: 0.2em;
+  background-color: gainsboro;
+
+  &.active {
+    box-shadow: 2px 2px 1em #4974ff;
+    outline: 1px solid #8ea7ff;
+  }
+}
+
+.task-card-header {
+  justify-content: space-between;
+}
+
+.task-card-content {
+  margin: 0.5em;
+}
+
+.task-pin {
+  flex: 0 0 2em;
+  height: 2em;
+  .task-pin-btn {
+    position: absolute;
+    top: -11px;
+    right: 2px;
+    width: 2em;
+    height: 2em;
+    cursor: move;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(/src/styles/img/pin_icon2.png);
+  }
+}
+
+.task-edit {
+  flex: 0 0 2em;
+  height: 2em;
+  .task-edit-btn {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: 0;
+    width: 1em;
+    height: 1em;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("./img/edit_icon.png");
+  }
+}

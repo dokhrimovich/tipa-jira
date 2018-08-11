@@ -4,7 +4,6 @@
 
 .grid-column {
   flex: 1 1 15em;
-  flex-direction: column;
   outline: 1px solid darkgray;
   margin: 1px 0 0 1px;
 }
@@ -22,22 +21,5 @@
 
 .grid-column_content {
   flex: 1 1 auto;
-  flex-direction: column;
   margin-top: 0.2em;
-}
-
-.grid-column_item {
-  flex: 0 0 6em;
-  padding: 0.3em;
-  margin: 0.2em;
-  background-color: gainsboro;
-
-  &.active {
-    box-shadow: 2px 2px 1em #4974ff;
-    outline: 1px solid #8ea7ff;
-  }
-}
-
-.grid-column_item-content {
-  margin: 0 0.5em;
 }

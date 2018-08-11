@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from'react-router-dom';
 import Avatar from 'js/components/common/avatar';
 
 class TaskItem extends React.Component {
+    navigateToEdit(event) {
+        event.preventDefault();
+
+        let { task, history } = this.props;
+
+        history.push(`/task/${task.id}`);
+    }
+
     getUserByUserId(userId) {
         let { users } = this.props;
 
@@ -11,18 +18,24 @@ class TaskItem extends React.Component {
 
     render() {
         let { task, currentTask, onTaskClick } = this.props;
+        let isActive = currentTask.id === task.id;
 
         return (<div
-                className={`grid-column_item${(currentTask.id === task.id) ? ' active' : ''}`}
-                onClick={() => onTaskClick(task.id)}
-            >
-            <div className="grid-column_item-header">
+            className={`task-card columns${isActive? ' active' : ''}`}
+            onClick={() => onTaskClick(task.id)}
+        >
+            <div className="task-card-header">
                 <Avatar className="small" user={this.getUserByUserId(task.assignedTo)}/>
+                <div className="task-pin">
+                    <div className="task-pin-btn" onClick={() => {}}/>
+                </div>
+                <div className="task-edit">
+                    <a href="#" className="task-edit-btn" onClick={(e) => this.navigateToEdit(e)} title="edit"/>
+                </div>
             </div>
-            <div className="grid-column_item-content">
+            <div className="task-card-content">
                 {task.title}
             </div>
-            <Link to={`/task/${task.id}`}>edit</Link>
         </div>);
     }
 }
