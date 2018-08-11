@@ -1,7 +1,8 @@
 import React from 'react';
-import Header from "../components/header/header";
-import { connect } from "react-redux";
-import action from '../actions/common';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import action from 'js/actions/common';
+import Header from 'js/components/header/header';
 
 const mapStateToProps = (state) => ({
     user: state.user
@@ -12,9 +13,9 @@ const mapDispatchToProps = (dispatch) => ({
     onLogoutClick: () => action.logout(dispatch)
 });
 
-const HeaderContainer = connect(
+const HeaderContainer = withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(Header);
+)(Header));
 
 export default HeaderContainer;

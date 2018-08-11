@@ -1,5 +1,5 @@
-import * as actionType from "../constants/actionTypes";
-import * as serverUtils from '../utils/serverUtils';
+import * as serverUtils from 'js/utils/serverUtils';
+import * as actionType from 'js/constants/actionTypes';
 
 export const initApp = (dispatch) => {
     serverUtils.init()

@@ -11,6 +11,12 @@ module.exports = {
         filename: '[name].js',
         publicPath: '/'
     },
+    resolve: {
+        alias: {
+            js: path.resolve(__dirname, 'src/js/'),
+            styles: path.resolve(__dirname, 'src/styles/')
+        }
+    },
 	module: {
         rules: [
             {

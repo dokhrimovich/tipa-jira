@@ -1,4 +1,4 @@
-import * as actionType from "../constants/actionTypes";
+import * as actionType from 'js/constants/actionTypes';
 
 const users = (state = [], action) => {
     switch (action.type) {
