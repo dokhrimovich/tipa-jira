@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../common/button';
+import Button from 'js/components/common/button';
 
 class HeaderLoginForm extends React.Component {
     constructor() {
@@ -34,9 +34,9 @@ class HeaderLoginForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const { onLoginClick } = this.props;
+        const { onLogin } = this.props;
 
-        onLoginClick(this.state.login, this.state.password)
+        onLogin(this.state.login, this.state.password)
             .then(() => {}, (error) => {
                 this.setState({
                     message: { type: 'error', text: error }

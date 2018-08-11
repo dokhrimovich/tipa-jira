@@ -1,5 +1,6 @@
-import * as serverUtils from 'js/utils/serverUtils';
-import * as actionType from 'js/constants/actionTypes';
+import serverUtils from 'js/utils/serverUtils';
+import storageUtils from 'js/utils/storageUtils';
+import actionType from 'js/constants/actionTypes';
 
 export const initApp = (dispatch) => {
     serverUtils.init()
@@ -12,17 +13,34 @@ export const initApp = (dispatch) => {
 
             serverUtils.fetchUsers()
                 .then((users) => dispatch({ type: actionType.SET_USERS, data: users }));
+
+            loginByToken(dispatch);
         });
 };
 
-export const login = (dispatch, login, password) => {
-    return serverUtils.login(login, password)
-        .then((user) => dispatch({ type: actionType.LOGIN, data: user }));
+export const loginByCredentials = (dispatch, login, password) => {
+    return serverUtils.loginByCredentials(login, password)
+        .then((user) => loginAction(dispatch, user));
+};
+
+export const loginByToken = (dispatch) => {
+    let token = storageUtils.getItem('autoToken');
+
+    if (token) {
+        return serverUtils.loginByToken(token)
+            .then((user) => loginAction(dispatch, user));
+    }
+
+    return Promise.reject('Token not found').catch((e) => {});
 };
 
 export const logout = (dispatch) => {
     return serverUtils.logout()
-        .then(() => dispatch({ type: actionType.LOGOUT }));
+        .then(() => {
+            storageUtils.removeItem('autoToken');
+
+            dispatch({ type: actionType.LOGOUT });
+        });
 };
 
 export const setActiveTask = (dispatch, id) => {
@@ -33,9 +51,16 @@ export const setActiveTask = (dispatch, id) => {
         );
 };
 
+const loginAction = (dispatch, user)  => {
+    storageUtils.setItem('autoToken', user.authToken);
+
+    dispatch({ type: actionType.LOGIN, data: user });
+};
+
 export default {
     initApp,
-    login,
+    loginByCredentials,
+    loginByToken,
     logout,
     setActiveTask
 };
