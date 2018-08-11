@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onLoginClick: (login, password) => action.login(dispatch, login, password),
+    onLogin: (login, password) => action.loginByCredentials(dispatch, login, password),
     onLogoutClick: () => action.logout(dispatch)
 });
 
