@@ -1,5 +1,5 @@
-import * as taskStatus from "./taskStatuses";
-import * as taskPriority from "./taskPriorities";
+import * as taskStatus from 'js/constants/taskStatuses';
+import * as taskPriority from 'js/constants/taskPriorities';
 
 export let statusesMock = [{
     id: taskStatus.TODO,
@@ -85,29 +85,29 @@ export const usersMock = [{
     login: 'Kukuruzko',
     password: '777',
     name: 'Kuk Ruzik',
-    avatar: 'src/styles/img/users/ava1.png'
+    avatar: '/src/styles/img/users/ava1.png'
 }, {
     id: 2,
     login: 'Potsenyatko',
     password: '555',
     name: 'Pots Natok',
-    avatar: 'src/styles/img/users/ava2.png'
+    avatar: '/src/styles/img/users/ava2.png'
 }, {
     id: 3,
     login: 'Krendell',
     password: '555',
     name: 'Kren Delo',
-    avatar: 'src/styles/img/users/ava3.png'
+    avatar: '/src/styles/img/users/ava3.png'
 }, {
     id: 4,
     login: 'Kopipasta',
     password: '555',
     name: 'Kopi Pasta',
-    avatar: 'src/styles/img/users/ava4.png'
+    avatar: '/src/styles/img/users/ava4.png'
 }, {
     id: 5,
     login: 'Vaffel',
     password: '555',
     name: 'Van Felly',
-    avatar: 'src/styles/img/users/ava5.png'
+    avatar: '/src/styles/img/users/ava5.png'
 }];

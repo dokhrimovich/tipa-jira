@@ -1,5 +1,6 @@
 import React from 'react';
-import Avatar from "./common/avatar";
+import { Link } from'react-router-dom';
+import Avatar from 'js/components/common/avatar';
 
 class TaskItem extends React.Component {
     getUserByUserId(userId) {
@@ -21,6 +22,7 @@ class TaskItem extends React.Component {
             <div className="grid-column_item-content">
                 {task.title}
             </div>
+            <Link to={`/task/${task.id}`}>edit</Link>
         </div>);
     }
 }

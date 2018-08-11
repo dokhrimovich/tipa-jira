@@ -1,7 +1,9 @@
 import React from 'react';
-import HeaderContainer from '../containers/headerContainer';
-import Content from './content';
-import Footer from './footer';
+import { Route } from 'react-router-dom';
+import Footer from 'js/components/footer';
+import Content from 'js/components/content';
+import HeaderContainer from 'js/containers/headerContainer';
+import TaskEditorContainer from 'js/containers/taskEditorContainer';
 
 class App extends React.Component {
     componentWillMount() {
@@ -14,7 +16,8 @@ class App extends React.Component {
         return (
             <div className="application">
                 <HeaderContainer/>
-                <Content />
+                <Route exact path="/" component={Content} />
+                <Route path="/task/:id" component={TaskEditorContainer} />
                 <Footer />
             </div>
         );

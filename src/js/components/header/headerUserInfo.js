@@ -1,6 +1,6 @@
 import React from 'react';
-import Button from '../common/button';
-import Avatar from '../common/avatar';
+import Button from 'js/components/common/button';
+import Avatar from 'js/components/common/avatar';
 
 const HeaderUserInfo = ({ user, onLogoutClick }) => (
     <div className="header-user-container">

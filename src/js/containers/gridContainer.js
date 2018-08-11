@@ -1,13 +1,14 @@
 import React from 'react';
-import Grid from "../components/grid/grid";
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import Grid from 'js/components/grid/grid';
 
 const mapStateToProps = (state) => ({
     columns: state.statuses
 });
 
-const GridContainer = connect(
+const GridContainer = withRouter(connect(
     mapStateToProps
-)(Grid);
+)(Grid));
 
 export default GridContainer;

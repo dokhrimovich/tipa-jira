@@ -1,7 +1,8 @@
 import React from 'react';
-import TaskItem from "../components/taskItem";
-import { connect } from "react-redux";
-import action from "../actions/common";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import action from 'js/actions/common';
+import TaskItem from 'js/components/task/taskItem';
 
 const mapStateToProps = (state) => ({
     users: state.users,
@@ -12,9 +13,9 @@ const mapDispatchToProps = (dispatch) => ({
     onTaskClick: (id) => action.setActiveTask(dispatch, id)
 });
 
-const TaskItemContainer = connect(
+const TaskItemContainer = withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(TaskItem);
+)(TaskItem));
 
 export default TaskItemContainer;
