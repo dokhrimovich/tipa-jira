@@ -1,12 +1,12 @@
 import * as actionType from 'js/constants/actionTypes';
 
-const users = (state = [], action) => {
+const statusesReducer = (state = [], action) => {
     switch (action.type) {
-        case actionType.SET_USERS:
+        case actionType.SET_STATUSES:
             return [ ...action.data];
         default:
             return state;
     }
 };
 
-export default users;
+export default statusesReducer;

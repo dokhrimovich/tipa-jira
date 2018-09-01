@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class TaskEditor extends React.Component {
     render() {
@@ -18,4 +20,13 @@ class TaskEditor extends React.Component {
     }
 }
 
-export default TaskEditor;
+const mapStateToProps = (state) => ({
+    user: state.user,
+    users: state.users,
+    statuses: state.statuses,
+    currentTask: state.currentTask
+});
+
+export default withRouter(connect(
+    mapStateToProps
+)(TaskEditor));

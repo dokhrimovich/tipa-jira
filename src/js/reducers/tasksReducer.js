@@ -4,7 +4,7 @@ const getPreviewTask = (data) => data;
 
 const updateTask = (task, data) => task;
 
-const tasks = (state = [], action) => {
+const tasksReducer = (state = [], action) => {
     switch (action.type) {
         case actionType.SET_TASKS:
             return action.data.map(getPreviewTask);
@@ -22,4 +22,4 @@ const tasks = (state = [], action) => {
     }
 };
 
-export default tasks;
+export default tasksReducer;

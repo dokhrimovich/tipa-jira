@@ -1,6 +1,6 @@
 import * as actionType from '../constants/actionTypes';
 
-const user = (state = {}, action) => {
+const userReducer = (state = {}, action) => {
     switch (action.type) {
         case actionType.LOGIN:
             return Object.assign({}, action.data, {
@@ -15,4 +15,4 @@ const user = (state = {}, action) => {
     }
 };
 
-export default user;
+export default userReducer;

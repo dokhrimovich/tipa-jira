@@ -1,5 +1,7 @@
 import React from 'react';
-import TaskItemContainer from 'js/containers/taskItemContainer';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import TaskItem from 'js/components/task/taskItem';
 
 class GridColumn extends React.Component {
     render() {
@@ -10,7 +12,7 @@ class GridColumn extends React.Component {
                 <div className="grid-column_header"><header>{config.title}</header></div>
                 <div className="grid-column_content columns">
                     {tasks.map((task) => {
-                        return (<TaskItemContainer key={task.id} task={task}></TaskItemContainer>);
+                        return (<TaskItem key={task.id} task={task}></TaskItem>);
                     })}
                 </div>
             </div>
@@ -18,4 +20,10 @@ class GridColumn extends React.Component {
     }
 }
 
-export default GridColumn;
+const mapStateToProps = (state, ownProps) => ({
+    tasks: state.tasks.filter((task) => task.status === ownProps.config.id)
+});
+
+export default withRouter(connect(
+    mapStateToProps
+)(GridColumn));
