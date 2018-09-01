@@ -1,9 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import action from 'js/actions/common';
 import Footer from 'js/components/footer';
 import Content from 'js/components/content';
-import HeaderContainer from 'js/containers/headerContainer';
-import TaskEditorContainer from 'js/containers/taskEditorContainer';
+import Header from 'js/components/header/header';
+import TaskEditor from 'js/components/task/taskEditor';
 
 class App extends React.Component {
     componentWillMount() {
@@ -15,13 +18,19 @@ class App extends React.Component {
     render() {
         return (
             <div className="application">
-                <HeaderContainer/>
+                <Header/>
                 <Route exact path="/" component={Content} />
-                <Route path="/task/:id" component={TaskEditorContainer} />
+                <Route path="/task/:id" component={TaskEditor} />
                 <Footer />
             </div>
         );
     }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+    initApp: () => action.initApp(dispatch)
+});
+
+export default withRouter(connect(
+    null, mapDispatchToProps
+)(App));

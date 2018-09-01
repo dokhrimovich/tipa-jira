@@ -1,12 +1,20 @@
 import React from 'react';
-import GridColumnContainer from '../../containers/gridColumnContainer';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import GridColumn from 'js/components/grid/gridColumn';
 
 const Grid = ({ columns = [] }) => (
     <div className="grid">
         {columns.map((column) => {
-            return <GridColumnContainer key={column.id} config={column}/>
+            return <GridColumn key={column.id} config={column}/>
         })}
     </div>
 );
 
-export default Grid;
+const mapStateToProps = (state) => ({
+    columns: state.statuses
+});
+
+export default withRouter(connect(
+    mapStateToProps
+)(Grid));

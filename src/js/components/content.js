@@ -1,9 +1,9 @@
 import React from 'react';
-import GridContainer from '../containers/gridContainer';
+import Grid from 'js/components/grid/grid';
 
 const Content = () => (
     <div className="content">
-        <GridContainer />
+        <Grid />
     </div>
 );
 

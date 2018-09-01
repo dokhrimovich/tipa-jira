@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import action from 'js/actions/common';
 import Avatar from 'js/components/common/avatar';
 
 class TaskItem extends React.Component {
@@ -40,4 +43,16 @@ class TaskItem extends React.Component {
     }
 }
 
-export default TaskItem;
+const mapStateToProps = (state) => ({
+    users: state.users,
+    currentTask: state.currentTask
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    onTaskClick: (id) => action.setActiveTask(dispatch, id)
+});
+
+export default withRouter(connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(TaskItem));
