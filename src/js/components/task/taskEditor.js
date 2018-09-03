@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 class TaskEditor extends React.Component {
     render() {
-        let { user } = this.props;
+        let { user, currentTask } = this.props;
 
         return (<div className="task-editor">
             {user.isLoggedIn? this.renderEditor() : this.renderEmpty()}

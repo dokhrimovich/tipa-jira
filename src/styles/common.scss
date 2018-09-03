@@ -1,5 +1,32 @@
+.rows {
+  flex-direction: row;
+}
+
 .columns {
   flex-direction: column;
+}
+
+.down {
+  flex-direction: column-reverse;
+}
+
+.right {
+  flex-direction: row-reverse;
+}
+
+.center {
+  &.columns {
+    align-items: center;
+  }
+  &.down {
+    align-items: center;
+  }
+  &.rows {
+    justify-content: center;
+  }
+  &.right {
+    justify-content: center;
+  }
 }
 
 .form-message.error {
