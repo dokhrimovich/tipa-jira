@@ -34,27 +34,16 @@
 
   .header-right-container {
     flex: 1 0 auto;
-    flex-direction: row-reverse;
   }
 
-  .header-user-container {
-
-  }
-
-  .header-login-invite-form {
+  .header-login-form {
     display: flex;
     flex-wrap: wrap;
     flex: 0 0 auto;
-    width: 12em;
+    width: 20em;
 
-    span {
+    .form-message {
       margin: 0.1em;
-      width: 12em;
-    }
-
-    input {
-      width: 5em;
-      margin: 0 0.1em;
     }
 
     .btn-login {
@@ -62,8 +51,50 @@
     }
   }
 
-  .header-user-container {
+  .header-user-info {
     flex-wrap: wrap;
-    flex: 0 0 20em;
+
+    a {
+      color: white;
+      :visited {
+        color: white;
+      }
+    }
+  }
+
+  .header-user-info-dropdown {
+    position: absolute;
+    top: 2em;
+    right: 0;
+    padding: 0.5em;
+    background-color: #f39f82;
+    border: 1px solid #c66345;
+    z-index: 1;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -.35em;
+      right: 1em;
+      width: .5em;
+      height: .5em;
+      transform: rotate(45deg);
+      background-color: #f39f82;
+      border: solid #c66345;
+      border-width: 1px 0 0 1px;
+    }
+
+    .btn-hide-dropdown {
+      width: .6em;
+      height: .6em;
+      border: solid white;
+      border-width: 1px 0 0 1px;
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+
+    .dropdown-footer {
+      margin: 0.5em 0.1em 0.1em 0.1em;
+    }
   }
 }

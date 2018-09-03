@@ -1,0 +1,35 @@
+.control {
+  border: 1px solid cadetblue;
+  border-radius: .25em;
+  background-color: #fff;
+  margin: .2em .1em;
+  overflow: hidden;
+
+  input {
+    flex: 1;
+    border: none;
+    min-width: 0;
+    padding: 0 0.2em;
+    line-height: 1.5em;
+
+    &:focus{
+      outline: none;
+    }
+  }
+
+  &.password {
+    input {
+      padding: 0 2.7em 0 0.2em;
+    }
+    .hide-show-btn {
+      position: absolute;
+      right: 0;
+      width: 2.5em;
+      height: 1.5em;
+      line-height: 1.5em;
+      cursor: pointer;
+      color: darkgray;
+      padding-right: 0.2em;
+    }
+  }
+}
