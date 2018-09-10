@@ -8,9 +8,9 @@ class GridColumn extends React.Component {
         let { config, tasks } = this.props;
 
         return (
-            <div className="grid-column columns">
-                <div className="grid-column_header"><header>{config.title}</header></div>
-                <div className="grid-column_content columns">
+            <div className="grid-column columns normal">
+                <div className="grid-column_header normal"><header>{config.title}</header></div>
+                <div className="grid-column_content columns normal">
                     {tasks.map((task) => {
                         return (<TaskItem key={task.id} task={task}></TaskItem>);
                     })}

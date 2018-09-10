@@ -1,4 +1,4 @@
-import * as actionType from '../constants/actionTypes';
+import actionType from 'js/constants/actionTypes';
 
 const userReducer = (state = {}, action) => {
     switch (action.type) {

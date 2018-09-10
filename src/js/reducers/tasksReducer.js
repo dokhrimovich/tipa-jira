@@ -1,4 +1,4 @@
-import * as actionType from '../constants/actionTypes';
+import actionType from 'js/constants/actionTypes';
 
 const getPreviewTask = (data) => data;
 

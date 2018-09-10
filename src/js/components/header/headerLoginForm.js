@@ -1,9 +1,9 @@
 import React from 'react';
 import { compose } from 'redux';
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import action from "js/actions/common";
+import action from 'js/actions/common';
 import Button from 'js/components/common/controls/button';
 import TextInput from 'js/components/common/controls/textInput';
 import PasswordInput from 'js/components/common/controls/passwordInput';
@@ -25,7 +25,7 @@ class HeaderLoginForm extends React.Component {
                     className="header-login-form columns"
                     onSubmit={handleSubmit((data) => this.handleSubmit(data))}>
             <span className={'form-message ' + this.state.message.type}>{this.state.message.text}</span>
-            <div className="form-controls columns">
+            <div className="form-controls columns normal">
                 <Field name="login" component={TextInput}/>
                 <Field name="password" component={PasswordInput}/>
             </div>
@@ -69,7 +69,7 @@ const withStore = connect(
 );
 
 const withForm = reduxForm({
-    form: 'header-login11',
+    form: 'header-login',
     validate: validate
 });
 

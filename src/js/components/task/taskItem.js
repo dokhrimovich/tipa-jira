@@ -27,16 +27,16 @@ class TaskItem extends React.Component {
             className={`task-card columns${isActive? ' active' : ''}`}
             onClick={() => onTaskClick(task.id)}
         >
-            <div className="task-card-header">
+            <div className="task-card-header normal">
                 <Avatar className="small" user={this.getUserByUserId(task.assignedTo)}/>
-                <div className="task-pin">
-                    <div className="task-pin-btn" onClick={() => {}}/>
+                <div className="task-pin normal">
+                    <div className="task-pin-btn normal" onClick={() => {}}/>
                 </div>
-                <div className="task-edit">
+                <div className="task-edit normal">
                     <a href="#" className="task-edit-btn" onClick={(e) => this.navigateToEdit(e)} title="edit"/>
                 </div>
             </div>
-            <div className="task-card-content">
+            <div className="task-card-content normal">
                 {task.title}
             </div>
         </div>);
