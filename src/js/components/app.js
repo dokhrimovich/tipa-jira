@@ -17,7 +17,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="application">
+            <div className="application normal">
                 <Header/>
                 <Route exact path="/" component={Content} />
                 <Route path="/task/:id" component={TaskEditor} />

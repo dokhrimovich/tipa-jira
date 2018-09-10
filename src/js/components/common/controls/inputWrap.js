@@ -1,16 +1,17 @@
 import React from 'react';
 
 class InputWrapper extends React.Component {
-    defaultClasses = ['control'];
-
+    defaultClasses = ['control', 'normal'];
     render() {
-        const { input, meta, label, InputComponent, children } = this.props;
-        const { submitting } = meta;
+        const { label, InputComponent, children, input, meta, ...other } = this.props;
+        const inputComponentProps = { ...input, ...other };
 
         return (
             <div className={this.getClassName()}>
                 {label && (<label>{label}</label>)}
-                <InputComponent {...input} disabled={submitting}/>
+                <div className="input-wrap normal">
+                    <InputComponent {...inputComponentProps} />
+                </div>
                 {children}
             </div>
         );

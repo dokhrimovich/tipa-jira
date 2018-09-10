@@ -16,19 +16,19 @@ class HeaderUserInfo extends React.Component {
         let { user } = this.props;
         let { isLoggedIn } = user;
 
-        return (<div className="header-user-info columns center">
+        return (<div className="header-user-info columns center normal">
             {isLoggedIn && (<Avatar user={user} onClick={() => this.toggleDropDown()}/>)}
             {isLoggedIn
                 ? (<a href="#" onClick={(event) => this.logoutLinkClick(event)}>Logout</a>)
                 : (<a href="#" onClick={(event) => this.loginLinkClick(event)}>Login</a>)
             }
             {this.state.show && !isLoggedIn && (
-                <div className="header-user-info-dropdown columns">
-                    <div className="center">
+                <div className="header-user-info-dropdown columns normal">
+                    <div className="center normal">
                         <HeaderLoginForm />
                     </div>
-                    <div className="dropdown-footer rows center">
-                        <div className="btn-hide-dropdown" onClick={() => this.toggleDropDown()} />
+                    <div className="dropdown-footer rows center normal">
+                        <div className="btn-hide-dropdown normal" onClick={() => this.toggleDropDown()} />
                     </div>
                 </div>
             )}

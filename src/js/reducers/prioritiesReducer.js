@@ -1,12 +1,12 @@
 import actionType from 'js/constants/actionTypes';
 
-const statusesReducer = (state = [], action) => {
+const prioritiesReducer = (state = [], action) => {
     switch (action.type) {
-        case actionType.SET_STATUSES:
+        case actionType.SET_PRIORITIES:
             return [ ...action.data];
         default:
             return state;
     }
 };
 
-export default statusesReducer;
+export default prioritiesReducer;

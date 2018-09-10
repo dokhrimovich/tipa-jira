@@ -1,5 +1,5 @@
 import storageUtils from 'js/utils/storageUtils';
-import { statusesMock, tasksMock, usersMock } from 'js/constants/serverMocks';
+import mocks from 'js/utils/serverMocks';
 
 const fakeServerDelay = 200;
 
@@ -27,28 +27,29 @@ const getPreviewUsers = (data) => {
         }, {});
 };
 
-const getServerFakeResponse = (action) => {
+const fakeServerResponse = (action) => {
     return new Promise((resolve, reject) => {
         window.setTimeout(() => action(resolve, reject), fakeServerDelay);
     });
 };
 
-export const init = () => getServerFakeResponse((resolve) => {
+export const init = () => fakeServerResponse((resolve) => {
     if (storageUtils.getItem('fake.server.initialized')) {
         resolve();
 
         return;
     }
 
-    storageUtils.setItem('fake.server.statuses', statusesMock);
-    storageUtils.setItem('fake.server.tasks', tasksMock);
-    storageUtils.setItem('fake.server.users', usersMock);
+    storageUtils.setItem('fake.server.statuses', mocks.statusesMock);
+    storageUtils.setItem('fake.server.priorities', mocks.prioritiesMock);
+    storageUtils.setItem('fake.server.tasks', mocks.tasksMock);
+    storageUtils.setItem('fake.server.users', mocks.usersMock);
     storageUtils.setItem('fake.server.initialized', true);
 
     resolve();
 });
 
-export const loginByCredentials = (login, password) => getServerFakeResponse((resolve, reject) => {
+export const loginByCredentials = (login, password) => fakeServerResponse((resolve, reject) => {
     let users = storageUtils.getItem('fake.server.users');
     let user = users.find((u) => u.login === login && u.password === password);
 
@@ -67,7 +68,7 @@ export const loginByCredentials = (login, password) => getServerFakeResponse((re
     }
 });
 
-export const loginByToken = (token) => getServerFakeResponse((resolve, reject) => {
+export const loginByToken = (token) => fakeServerResponse((resolve, reject) => {
     let loggedUser = storageUtils.getItem('fake.server.current_user');
 
     if (loggedUser.authToken === token) {
@@ -80,7 +81,7 @@ export const loginByToken = (token) => getServerFakeResponse((resolve, reject) =
     }
 });
 
-export const logout = () => getServerFakeResponse((resolve) => {
+export const logout = () => fakeServerResponse((resolve) => {
     let currentUser = storageUtils.getItem('fake.server.current_user');
     let users = storageUtils.getItem('fake.server.users');
     let user = users.find((u) => u.login === currentUser.login);
@@ -95,29 +96,36 @@ export const logout = () => getServerFakeResponse((resolve) => {
     resolve();
 });
 
-export const fetchStatuses = () => getServerFakeResponse((resolve) => {
+export const fetchStatuses = () => fakeServerResponse((resolve) => {
     let statuses = storageUtils.getItem('fake.server.statuses');
 
     resolve(statuses);
 });
 
-export const fetchUsers = () => getServerFakeResponse((resolve, reject) => {
+export const fetchPriorities = () => fakeServerResponse((resolve) => {
+    let priorities = storageUtils.getItem('fake.server.priorities');
+
+    resolve(priorities);
+});
+
+export const fetchUsers = () => fakeServerResponse((resolve, reject) => {
     let rawUsers = storageUtils.getItem('fake.server.users');
     let users = rawUsers.map(getPreviewUsers);
 
     resolve(users);
 });
 
-export const fetchTasks = () => getServerFakeResponse((resolve, reject) => {
+export const fetchTasks = () => fakeServerResponse((resolve, reject) => {
     let rawTasks = storageUtils.getItem('fake.server.tasks');
     let tasks = rawTasks.map(getPreviewTask);
 
     resolve(tasks);
 });
 
-export const fetchTask = (id) => getServerFakeResponse((resolve, reject) => {
+export const fetchTask = (id) => fakeServerResponse((resolve, reject) => {
+    let taskId = Number(id);
     let rawTasks = storageUtils.getItem('fake.server.tasks');
-    let task = rawTasks.find((t) => t.id === id);
+    let task = rawTasks.find((t) => t.id === taskId);
 
     if (task) {
         resolve(task);
@@ -126,13 +134,39 @@ export const fetchTask = (id) => getServerFakeResponse((resolve, reject) => {
     }
 });
 
+export const updateTask = (taskData) => fakeServerResponse((resolve, reject) => {
+    if (!taskData || !('id' in taskData)) {
+        reject(`Task update error. Task data has no id`);
+
+        return;
+    }
+
+    let taskId = Number(taskData.id);
+    let rawTasks = storageUtils.getItem('fake.server.tasks');
+    let task = rawTasks.find((t) => t.id === taskId);
+
+    if (!task) {
+        reject(`Task update error. Task [id=${id}] not found`);
+
+        return;
+    }
+
+    Object.assign(task, taskData);
+
+    storageUtils.setItem('fake.server.tasks', rawTasks);
+
+    resolve(task);
+});
+
 export default {
     init,
     loginByCredentials,
     loginByToken,
     logout,
     fetchStatuses,
+    fetchPriorities,
     fetchUsers,
     fetchTasks,
-    fetchTask
+    fetchTask,
+    updateTask
 };

@@ -1,15 +1,17 @@
 .control {
-  border: 1px solid cadetblue;
-  border-radius: .25em;
-  background-color: #fff;
   margin: .2em .1em;
-  overflow: hidden;
+  flex-direction: column;
+
+  .input-wrap {
+    border: 1px solid cadetblue;
+    border-radius: .25em;
+  }
 
   input {
     flex: 1;
     border: none;
     min-width: 0;
-    padding: 0 0.2em;
+    margin: 0 0.2em;
     line-height: 1.5em;
 
     &:focus{
@@ -17,9 +19,15 @@
     }
   }
 
-  &.password {
+  &.text-input {
     input {
-      padding: 0 2.7em 0 0.2em;
+      padding: 0.35em 0;
+    }
+  }
+
+  &.password-input {
+    input {
+      padding: 0.35em 2.7em 0.35em 0.2em;
     }
     .hide-show-btn {
       position: absolute;

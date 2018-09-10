@@ -1,5 +1,5 @@
-import * as taskStatus from 'js/constants/taskStatuses';
-import * as taskPriority from 'js/constants/taskPriorities';
+import taskStatus from 'js/constants/taskStatuses';
+import taskPriority from 'js/constants/taskPriorities';
 
 export let statusesMock = [{
     id: taskStatus.TODO,
@@ -18,66 +18,95 @@ export let statusesMock = [{
     title: 'Closed'
 }];
 
+export let prioritiesMock = [{
+    id: taskPriority.TO_BE_PRIORITIZED,
+    title: 'To be prioritized'
+}, {
+    id: taskPriority.LOW,
+    title: 'Low'
+}, {
+    id: taskPriority.MEDIUM,
+    title: 'Medium'
+}, {
+    id: taskPriority.HIGH,
+    title: 'High'
+}, {
+    id: taskPriority.CRITICAL,
+    title: 'Critical'
+}];
+
 export const tasksMock = [{
     id: 1,
     title: 'Do something nice',
     assignedTo: 2,
     status: taskStatus.TODO,
     description: '',
-    createdOn: '',
-    lastUpdateOn: '',
     estimate: '',
-    priority: taskPriority.MEDIUM
+    priority: taskPriority.MEDIUM,
+    createdOn: '',
+    modifiedOn: '',
+    createdBy: '',
+    modifiedBy: ''
 }, {
     id: 2,
     title: 'Implement working solution',
     assignedTo: 3,
     status: taskStatus.TODO,
     description: '',
-    createdOn: '',
-    lastUpdateOn: '',
     estimate: '',
-    priority: taskPriority.MEDIUM
+    priority: taskPriority.MEDIUM,
+    createdOn: '',
+    modifiedOn: '',
+    createdBy: '',
+    modifiedBy: ''
 }, {
     id: 3,
     title: 'Fix bug',
     assignedTo: 4,
     status: taskStatus.TODO,
     description: '',
-    createdOn: '',
-    lastUpdateOn: '',
     estimate: '',
-    priority: taskPriority.MEDIUM
+    priority: taskPriority.MEDIUM,
+    createdOn: '',
+    modifiedOn: '',
+    createdBy: '',
+    modifiedBy: ''
 }, {
     id: 4,
     title: 'Watch youtube',
     assignedTo: 1,
     status: taskStatus.IN_PROGRESS,
     description: '',
-    createdOn: '',
-    lastUpdateOn: '',
     estimate: '',
-    priority: taskPriority.CRITICAL
+    priority: taskPriority.CRITICAL,
+    createdOn: '',
+    modifiedOn: '',
+    createdBy: '',
+    modifiedBy: ''
 }, {
     id: 5,
     title: 'Discover new memes',
     assignedTo: 1,
     status: taskStatus.CODE_REVIEW,
     description: '',
-    createdOn: '',
-    lastUpdateOn: '',
     estimate: '',
-    priority: taskPriority.CRITICAL
+    priority: taskPriority.CRITICAL,
+    createdOn: '',
+    modifiedOn: '',
+    createdBy: '',
+    modifiedBy: ''
 }, {
     id: 6,
     title: 'Find cure for cancer',
     assignedTo: 5,
     status: taskStatus.TODO,
     description: '',
-    createdOn: '',
-    lastUpdateOn: '',
     estimate: '',
-    priority: taskPriority.MEDIUM
+    priority: taskPriority.MEDIUM,
+    createdOn: '',
+    modifiedOn: '',
+    createdBy: '',
+    modifiedBy: ''
 }];
 
 export const usersMock = [{
@@ -111,3 +140,10 @@ export const usersMock = [{
     name: 'Van Felly',
     avatar: '/src/styles/img/users/ava5.png'
 }];
+
+export default {
+    statusesMock,
+    prioritiesMock,
+    tasksMock,
+    usersMock
+};
